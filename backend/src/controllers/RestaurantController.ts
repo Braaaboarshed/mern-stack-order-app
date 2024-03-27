@@ -17,6 +17,17 @@ const getRestaurant = async (req: Request, res: Response) => {
   }
 };
 
+const getAllRestaurant = async (req: Request, res: Response) => {
+  try{
+    const restaurant = await Restaurant.find()
+    res.status(200).json({message: restaurant})
+  }
+  catch(error){
+    console.log(error)
+  }
+}
+
+
 const searchRestaurant = async (req: Request, res: Response) => {
   try {
     const city = req.params.city;
